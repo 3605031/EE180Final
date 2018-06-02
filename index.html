@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ECE180 Tool</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <link rel="reset" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</head>
+
+<body>
+    <div id="myDiv">
+        <!-- Plotly chart will be drawn inside this DIV -->
+    </div>
+    <form>
+
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Contamination Level</label>
+            <select class="form-control" id="contLv">
+                <option>Very Light</option>
+                <option>Light</option>
+                <option>Moderate</option>
+                <option>Heavy</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Ceramic</label>
+            <select class="form-control" id="exampleFormControlSelect2">
+                <option>Ceramic</option>
+                <option>Non-Ceramic</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1">SWITCHING SURGES - 2 % Satistical Overvoltage(p.u.)</label>
+            <input type="email" class="form-control" id="exampleFormControlInput3" >
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">SWITCHING SURGES - Flashover Rate</label>
+            <input type="email" class="form-control" id="exampleFormControlInput4" >
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">SWITCHING SURGES - Number of Towers</label>
+            <input type="email" class="form-control" id="exampleFormControlInput5" >
+            <div class="form-group">
+                <label for="exampleFormControlInput1">LIGHTNING - Group Flash Density Flash/ (km^2 * year)</label>
+                <input type="email" class="form-control" id="exampleFormControlInput6" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">LIGHTNING - Tower Footing Resistance (Ohms)</label>
+            <input type="email" class="form-control" id="exampleFormControlInput6" >
+        </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">LIGHTNING - Flashover Rate [Flashover/(100km*year)]</label>
+            <input type="email" class="form-control" id="exampleFormControlInput6" >
+        </div>
+        </div>
+        <button type="submit" id="button" class="btn btn-primary">Draw Graph</button>
+
+    </form>
+
+</body>
+<script src="logic.js">
+</script>
+
+</html>

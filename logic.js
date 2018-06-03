@@ -6,6 +6,8 @@ var y_c = []
 var y_l = []
 //nesc
 var y_nesc = []
+//switch
+var y_switch = []
 
 for(var i=200;i<1200;i++){
 
@@ -86,13 +88,11 @@ var layout = {
     let gfd = parseFloat($("#gfd").val())
 
     let slope = 1/400
-    console.log(gfd)
+
     for(var i=0;i<1000;i++){
 
         let y = (slope)*(x_1[i])+(1/8)*(5+gfd)
-        if(i==0){
-        console.log((5+gfd))
-        }
+
         y_l[i] = y;
     }
     traceL = {
@@ -108,6 +108,7 @@ var layout = {
     };
 
     //NESC
+
     for(var i=0;i<1000;i++){
 
         let y = .005*(x_1[i]-50)+.28
@@ -125,8 +126,30 @@ var layout = {
           width: 2
         }
     };
+    //Switch
+    let over_voltage = parseFloat($("#ov").val())
+    traceS = {
+        type: 'scatter',
+        x: x_1,
+        y: y_switch,
+        mode: 'lines',
+        name: 'Switching',
+        line: {
+          color: 'rgb(0,0,255)',
+          width: 2
+        }
+    };
+    console.log(over_voltage)
+    console.log(gfd)
+    for(var i=0;i<1000;i++){
+
+        let y = Math.exp(((over_voltage-0.05)*x_1[i]/1296)-1)/0.46
+
+        y_switch[i] = y;
+    }
 
 
-    Plotly.newPlot('myDiv', [traceC,traceL,traceN], layout);
+
+    Plotly.newPlot('myDiv', [traceC,traceL,traceN,traceS], layout);
     
 })

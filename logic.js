@@ -1,6 +1,9 @@
 
 var x_1 = []
+//contamination
 var y_c = []
+//lightning
+var y_l = []
 
 for(var i=200;i<1200;i++){
 
@@ -60,7 +63,7 @@ var layout = {
     }
     for(var i=0;i<1000;i++){
 
-        let y = ((x_1[i] / Math.sqrt(3)) * c * (146/305) * (1/1.25))
+        let y = ((x_1[i]*.001 / Math.sqrt(3)) * c * (146/305) * (1/1.25))
         y_c[i] = y;
     }
     traceC = {
@@ -68,13 +71,41 @@ var layout = {
         x: x_1,
         y: y_c,
         mode: 'lines',
-        name: 'Red',
+        name: 'Contamination',
         line: {
           color: 'rgb(219, 64, 82)',
           width: 2
         }
     };
-    console.log(c)
-    Plotly.newPlot('myDiv', [traceC], layout);
+    
+    //Lightning
+    const TFD = 20
+    const flashRate = 0.6
+    let gfd = parseFloat($("#gfd").val())
+
+    let slope = 1/400
+    console.log(gfd)
+    for(var i=0;i<1000;i++){
+
+        let y = (slope)*(x_1[i])+(1/8)*(5+gfd)
+        if(i==0){
+        console.log((5+gfd))
+        }
+        y_l[i] = y;
+    }
+    traceL = {
+        type: 'scatter',
+        x: x_1,
+        y: y_l,
+        mode: 'lines',
+        name: 'Lightning',
+        line: {
+          color: 'rgb(57,255, 20)',
+          width: 2
+        }
+    };
+
+
+    Plotly.newPlot('myDiv', [traceC,traceL], layout);
     
 })

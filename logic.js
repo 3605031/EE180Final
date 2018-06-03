@@ -4,6 +4,8 @@ var x_1 = []
 var y_c = []
 //lightning
 var y_l = []
+//nesc
+var y_nesc = []
 
 for(var i=200;i<1200;i++){
 
@@ -105,7 +107,26 @@ var layout = {
         }
     };
 
+    //NESC
+    for(var i=0;i<1000;i++){
 
-    Plotly.newPlot('myDiv', [traceC,traceL], layout);
+        let y = .005*(x_1[i]-50)+.28
+
+        y_nesc[i] = y;
+    }
+    traceN = {
+        type: 'scatter',
+        x: x_1,
+        y: y_nesc,
+        mode: 'lines',
+        name: 'NESC',
+        line: {
+          color: 'rgb(255,182,193)',
+          width: 2
+        }
+    };
+
+
+    Plotly.newPlot('myDiv', [traceC,traceL,traceN], layout);
     
 })

@@ -1,4 +1,4 @@
-#System voltage vs strike distance for contimation,NESC,Lightning and switching surges
+# System voltage vs strike distance for contimation,NESC,Lightning and switching surges
 
 
 A simple tool for calculating strike distance given maximum distance voltage.

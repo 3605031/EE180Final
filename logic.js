@@ -143,7 +143,8 @@ var layout = {
     console.log(gfd)
     for(var i=0;i<1000;i++){
 
-        let y = Math.exp(((over_voltage-0.05)*x_1[i]/1296)-1)/0.46
+        let y = (Math.exp(((over_voltage-0.05)*x_1[i]/1296))-1)/0.46
+
 
         y_switch[i] = y;
     }
